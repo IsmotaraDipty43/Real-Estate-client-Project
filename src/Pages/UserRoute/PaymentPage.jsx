@@ -10,12 +10,12 @@ import useAuth from '../../Hooks/useAuth';
 const stripePromise = loadStripe(import.meta.env.VITE_PUBLISHABLE_KEY);
 
 const PaymentPage = () => {
-  const { propertyId } = useParams(); // Extract propertyId from URL
-  const { user } = useAuth(); // Get user details
-  const axiosSecure = useAxiosSecure(); // Secure Axios instance
-  const [offer, setOffer] = useState(null); // State for offer details
+  const { propertyId } = useParams(); 
+  const { user } = useAuth(); 
+  const axiosSecure = useAxiosSecure(); 
+  const [offer, setOffer] = useState(null); 
 
-  // Fetch offer details using propertyId
+
   useEffect(() => {
     const fetchOfferDetails = async () => {
       try {

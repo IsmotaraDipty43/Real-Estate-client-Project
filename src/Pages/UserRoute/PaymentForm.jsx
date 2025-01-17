@@ -10,8 +10,8 @@ const stripePromise = loadStripe(import.meta.env.VITE_PUBLISHABLE_KEY);
 
 const PaymentForm = () => {
   const { propertyId } = useParams();
-  const { user } = useAuth(); // Getting authenticated user details
-  const axiosSecure = useAxiosSecure(); // Using secure Axios instance
+  const { user } = useAuth(); 
+  const axiosSecure = useAxiosSecure();
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
@@ -31,15 +31,15 @@ const PaymentForm = () => {
     }
 
     try {
-      // Fetch offer details securely
+    
       const { data: offer } = await axiosSecure.get(`/getmyoffer/${propertyId}`);
       const amount = offer.offerAmount;
 
-      // Create payment intent securely
+
       const { data } = await axiosSecure.post('/create-payment-intent', { amount });
       const clientSecret = data.clientSecret;
 
-      // Confirm payment with Stripe
+  
       const paymentResult = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
@@ -53,7 +53,7 @@ const PaymentForm = () => {
       }
 
       if (paymentResult.paymentIntent.status === 'succeeded') {
-        // Update the offer status securely after payment
+      
         await axiosSecure.patch(`/offer/payment/${propertyId}`, {
           transactionId: paymentResult.paymentIntent.id,
         });
