@@ -13,7 +13,7 @@ const MyRequestedOfferedProperties = () => {
     const fetchProperties = async () => {
       try {
         const response = await axiosSecure.get(`/properties/${user.email}`);
-        setProperties(response.data); // Agent's properties
+        setProperties(response.data); 
       } catch (error) {
         console.error("Error fetching properties:", error);
       }
@@ -27,12 +27,12 @@ const MyRequestedOfferedProperties = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const propertyTitles = properties.map((prop) => prop.title); // Get all property titles
+        const propertyTitles = properties.map((prop) => prop.title);
         const allOffers = [];
 
         for (let title of propertyTitles) {
           const response = await axiosSecure.get(`/offer/${title}`);
-          allOffers.push(...response.data); // Collect offers for each property
+          allOffers.push(...response.data); 
         }
 
         setOffers(allOffers);
@@ -49,16 +49,16 @@ const MyRequestedOfferedProperties = () => {
   const handleStatusChange = async (offerId, status, propertyId) => {
     try {
       if (status === "accepted") {
-        // Accept the offer and reject others
+    
         await axiosSecure.post(`/offers/update/${propertyId}`, {
           acceptedOfferId: offerId,
         });
       } else {
-        // Update the status of the specific offer
+       
         await axiosSecure.patch(`/offer/status/${offerId}`, { status });
       }
 
-      // Refresh the offers list after status update
+   
       setOffers((prevOffers) =>
         prevOffers.map((offer) =>
           offer._id === offerId

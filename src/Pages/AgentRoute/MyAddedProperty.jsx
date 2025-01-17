@@ -98,7 +98,7 @@ const MyAddedProperty = () => {
               </p>
               {/* Use user.photoURL as agent image */}
               <img
-                src={user.photoURL || "default-agent-image.jpg"}  // Fallback image if no photoURL
+                src={user.photoURL || "default-agent-image.jpg"}  
                 alt={property.agentName}
                 className="w-12 h-12 rounded-full mt-2"
               />
