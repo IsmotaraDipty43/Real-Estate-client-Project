@@ -7,7 +7,7 @@ const WhyChoose = () => {
           {/* Left Side: Image */}
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
             <img
-              src={bedroom} // Replace with the actual path of your image
+              src={bedroom} 
               alt="Beautiful living room"
               className="rounded-lg shadow-lg"
             />
@@ -31,7 +31,7 @@ const WhyChoose = () => {
               {/* Feature 1 */}
               <div className="flex items-start space-x-4">
                 <div className="text-blue-500 text-2xl">
-                  <i className="fas fa-search"></i> {/* Replace with actual icon */}
+                  <i className="fas fa-search"></i> 
                 </div>
                 <div>
                   <h4 className="font-bold text-lg text-gray-800">Proven Expertise</h4>
@@ -46,7 +46,7 @@ const WhyChoose = () => {
               {/* Feature 2 */}
               <div className="flex items-start space-x-4">
                 <div className="text-blue-500 text-2xl">
-                  <i className="fas fa-cogs"></i> {/* Replace with actual icon */}
+                  <i className="fas fa-cogs"></i> 
                 </div>
                 <div>
                   <h4 className="font-bold text-lg text-gray-800">
@@ -62,7 +62,7 @@ const WhyChoose = () => {
               {/* Feature 3 */}
               <div className="flex items-start space-x-4">
                 <div className="text-blue-500 text-2xl">
-                  <i className="fas fa-handshake"></i> {/* Replace with actual icon */}
+                  <i className="fas fa-handshake"></i> 
                 </div>
                 <div>
                   <h4 className="font-bold text-lg text-gray-800">

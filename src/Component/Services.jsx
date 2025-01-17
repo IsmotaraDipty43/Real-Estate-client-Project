@@ -14,7 +14,7 @@ const Services = () => {
         {/* Service 1 */}
         <div className="shadow-lg rounded-lg p-6 bg-white text-center border">
           <img
-            src={house1} // Replace with actual image
+            src={house1}
             alt="Buy A New Home"
             className="mx-auto mb-4 w-24 h-24"
           />
@@ -31,7 +31,7 @@ const Services = () => {
         {/* Service 2 */}
         <div className="shadow-lg rounded-lg p-6 bg-white text-center border">
           <img
-            src={house2} // Replace with actual image
+            src={house2} 
             alt="Sell A Home"
             className="mx-auto mb-4 w-24 h-24"
           />
@@ -48,7 +48,7 @@ const Services = () => {
         {/* Service 3 */}
         <div className="shadow-lg rounded-lg p-6 bg-white text-center border">
           <img
-            src={house3} // Replace with actual image
+            src={house3}
             alt="Rent A Home"
             className="mx-auto mb-4 w-24 h-24"
           />
