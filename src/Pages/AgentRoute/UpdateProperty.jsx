@@ -6,14 +6,14 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Loading from "../../Component/Loading";
 
 const UpdateProperty = () => {
-  const { id } = useParams(); // Get property ID from URL params
-  const [property, setProperty] = useState(null); // Store property data
-  const [updatedPrice, setUpdatedPrice] = useState({ minimumPrice: 0, maximumPrice: 0 }); // Store price range
+  const { id } = useParams(); 
+  const [property, setProperty] = useState(null);
+  const [updatedPrice, setUpdatedPrice] = useState({ minimumPrice: 0, maximumPrice: 0 }); 
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch property data by ID
+  
     const fetchPropertyById = async () => {
       try {
         const response = await axiosSecure.get(`/property/${id}`);
