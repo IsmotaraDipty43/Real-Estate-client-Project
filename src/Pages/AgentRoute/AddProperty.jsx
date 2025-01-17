@@ -15,8 +15,6 @@ const AddProperty = () => {
   const axiosPublic = useAxiosPublic();
 console.log(user.email);
   const [userRole, setUserRole] = useState(null);
-
-  // Fetch the user role (Fraud check)
   useEffect(() => {
     const fetchUserRole = async () => {
       try {
@@ -43,7 +41,7 @@ console.log(user.email);
   const onSubmit = async (data) => {
     const { title, location, minimumPrice, maximumPrice, image, description, agentImage } = data;
 
-    // If user is marked as Fraud, don't allow property submission
+   
     if (userRole === 'Fraud') {
       Swal.fire({
         position: 'top-end',
@@ -54,8 +52,6 @@ console.log(user.email);
       });
       return;
     }
-
-    // Client-side validation for price range
     if (Number(minimumPrice) >= Number(maximumPrice)) {
       Swal.fire({
         position: 'top-end',
