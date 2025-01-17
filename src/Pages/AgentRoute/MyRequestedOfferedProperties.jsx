@@ -76,7 +76,7 @@ const MyRequestedOfferedProperties = () => {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">My Requested/Offered Properties</h1>
-      <div className="overflow-x-auto"> {/* Added for responsiveness */}
+      <div className="overflow-x-auto"> 
         <table className="min-w-full border-collapse border border-gray-300">
           <thead>
             <tr>

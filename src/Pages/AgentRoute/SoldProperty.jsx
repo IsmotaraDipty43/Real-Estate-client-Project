@@ -3,23 +3,23 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
 
 const SoldProperty = () => {
-  const { user } = useAuth(); // Get user data, including email
-  const axiosSecure = useAxiosSecure(); // Axios instance with authentication headers
+  const { user } = useAuth(); 
+  const axiosSecure = useAxiosSecure(); 
   const [soldProperties, setSoldProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [totalSoldAmount, setTotalSoldAmount] = useState(0); // State to store the total sold amount
+  const [totalSoldAmount, setTotalSoldAmount] = useState(0);
 
   useEffect(() => {
     if (user?.email) {
-      // Fetch sold properties for the authenticated user
+      
       const fetchSoldProperties = async () => {
         try {
           const response = await axiosSecure.get(`/broughtProperty/${user.email}`);
           const properties = response.data;
           setSoldProperties(properties);
 
-          // Calculate the total sold amount
+       
           const totalAmount = properties.reduce((sum, property) => sum + parseFloat(property.offerAmount || 0), 0);
           setTotalSoldAmount(totalAmount);
         } catch (err) {
@@ -31,7 +31,7 @@ const SoldProperty = () => {
 
       fetchSoldProperties();
     }
-  }, [user?.email, axiosSecure]); // Trigger effect when email changes
+  }, [user?.email, axiosSecure]); 
 
   if (loading) {
     return <p>Loading...</p>;
