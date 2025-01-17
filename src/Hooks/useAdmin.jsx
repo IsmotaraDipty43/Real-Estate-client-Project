@@ -12,8 +12,8 @@ const useAdmin = () => {
     queryFn: async () => {
       const emailLower = user.email.toLowerCase(); 
       const res = await axiossecure.get(`/users/adminuser/${emailLower}`);
-      console.log(res.data); // Check the response data
-      return res.data?.admin; // Return whether the user is an admin
+      console.log(res.data); 
+      return res.data?.admin; 
     },
   });
 
