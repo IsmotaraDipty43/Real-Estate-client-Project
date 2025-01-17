@@ -1,19 +1,19 @@
-#* HomeScape - Real Estate Platform
+# HomeScape - Real Estate Platform
 
 HomeScape is a fully responsive real estate platform built using the MEAR stack (MongoDB, Express.js, Angular, React, and Node.js). It enables users to buy and sell properties with advanced user roles for Admins, Agents, and Normal Users. The platform integrates Stripe for secure payments and provides an intuitive user experience with notifications and alerts.
 
-##* Live Demo
+## Live Demo
 [https://realstate-be053.web.app/](#)
 
 ##* Admin Credentials
 - **Username:** Admin@gmail.com  
 - **Password:** Admin@
 
-##* Agent Credentials
+## Agent Credentials
 - **Username:** Agent@gmail.com  
 - **Password:** Agent@
 
-##* Features
+## Features
 1. **User Roles and Management:**
    - Three user roles: Admin, Agent, and Normal User.
    - Admin can promote users to Agent and track their activities.
@@ -57,7 +57,7 @@ HomeScape is a fully responsive real estate platform built using the MEAR stack 
 10. **Responsive Design:**
     - Fully responsive UI for seamless experience across desktops, tablets, and mobile devices.
 
-##* Technology Stack
+## Technology Stack
 - **Frontend:** React.js, Tailwind CSS
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
