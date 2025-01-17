@@ -1,5 +1,5 @@
 import React from 'react';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // Requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
 import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image2.jpg';

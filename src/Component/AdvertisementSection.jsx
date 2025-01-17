@@ -47,7 +47,7 @@ const AdvertisementSection = ({ highlightedPropertyId }) => {
       <h2 className="text-3xl font-bold mb-8 text-center">Discover Your Dream Property</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {properties.slice(0, 4).map((property, index) => {
-          // Check if the current property is the one that was clicked and passed as highlightedPropertyId
+          
           const isHighlighted = property._id === highlighted;
 
           return (

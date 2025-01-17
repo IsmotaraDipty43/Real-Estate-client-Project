@@ -3,26 +3,26 @@ import useAxiosPublic from '../Hooks/useAxiosPublic';
 
 const ReviewSection = () => {
   const [reviews, setReviews] = useState([]);
-  const axiosPublic = useAxiosPublic(); // Get the Axios instance from the hook
+  const axiosPublic = useAxiosPublic();
 
   useEffect(() => {
-    // Fetch the latest reviews from the '/reviews' endpoint
+  
     const fetchReviews = async () => {
       try {
-        const response = await axiosPublic.get('/reviews'); // Make the GET request
-        // Sort the reviews by createdReviewTime in descending order (latest first)
+        const response = await axiosPublic.get('/reviews'); 
+    
         const sortedReviews = response.data.sort(
           (a, b) => new Date(b.createdReviewTime) - new Date(a.createdReviewTime)
         );
-        setReviews(sortedReviews.slice(0, 3)); // Set the latest 3 reviews
+        setReviews(sortedReviews.slice(0, 3)); 
       } catch (error) {
         console.error("Error fetching reviews:", error);
       }
     };
     fetchReviews();
-  }, [axiosPublic]); // Dependency array includes axiosPublic to trigger re-run if it changes
+  }, [axiosPublic]); 
 
-  // Array of different background colors for each card
+
   const cardColors = ['bg-blue-100', 'bg-green-100', 'bg-yellow-100'];
 
   return (
