@@ -9,7 +9,7 @@ const MyReviews = () => {
   const axiosSecure = useAxiosSecure();
   const [reviews, setReviews] = useState([]);
 
-  // Fetch the user's reviews
+
   useEffect(() => {
     const fetchReviews = async () => {
       try {
@@ -25,7 +25,7 @@ const MyReviews = () => {
     }
   }, [user, axiosSecure]);
 
-  // Delete a review
+
   const deleteReview = async (id) => {
     try {
       const response = await axiosSecure.delete(`/myreview/${id}`);
