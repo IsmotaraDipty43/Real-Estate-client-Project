@@ -62,8 +62,6 @@ console.log(user.email);
       });
       return;
     }
-
-    // Prepare the image files for the imgBB API
     const propertyImageFile = { image: image[0] };
     const agentImageFile = { image: agentImage[0] };
 
@@ -77,7 +75,7 @@ console.log(user.email);
       });
 
       if (propertyImageResponse.data.success && agentImageResponse.data.success) {
-        // Prepare the property data
+    
         const propertyData = {
           title,
           location,
@@ -92,11 +90,11 @@ console.log(user.email);
           agentImage: agentImageResponse.data.data.display_url,
         };
 
-        // Submit the property data to the backend
+    
         const propertyResponse = await axiosSecure.post('/properties', propertyData);
 
         if (propertyResponse.data.insertedId) {
-          reset(); // Reset the form
+          reset(); 
           Swal.fire({
             position: 'top-end',
             icon: 'success',
