@@ -18,25 +18,25 @@ const useLoadUserdata = () => {
 
   useEffect(() => {
     if (user?.email && data) {
-      // Check if the logged-in user's email matches a database user's email with the role 'Agent' (case-insensitive)
+     
       const loggedInUser = data.find(
         (dbUser) =>
           dbUser.email.toLowerCase() === user.email.toLowerCase() &&
           dbUser.role === "Agent" || dbUser.role === "Fraud"
       );
-      setIsAgent(!!loggedInUser); // Set isAgent to true if found, else false
+      setIsAgent(!!loggedInUser);
     }
-  }, [user, data]); // Only run when user or data changes
+  }, [user, data]); 
   
 
   console.log("Logged-in User's Email:", user?.email);
   console.log("Is Agent:", isAgent);
 
   return {
-    data,       // The user data
-    isAgent,    // Boolean indicating if the logged-in user is an agent
-    isLoading,  // Loading state
-    error,      // Error state
+    data,     
+    isAgent,    
+    isLoading,  
+    error,      
   };
 };
 
