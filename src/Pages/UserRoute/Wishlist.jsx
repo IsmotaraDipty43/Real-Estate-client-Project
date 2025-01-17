@@ -8,8 +8,7 @@ const Wishlist = () => {
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
-  const { user } = useAuth(); // Get logged-in user's email from useAuth
-  const navigate = useNavigate();
+  const { user } = useAuth(); 
 
   useEffect(() => {
     const fetchWishlist = async () => {

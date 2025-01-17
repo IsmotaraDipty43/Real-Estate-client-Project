@@ -5,7 +5,7 @@ import useAuth from '../Hooks/useAuth';
 
 const ProfileofAdmin = () => {
 
-  const { user } = useAuth(); // Get logged-in user from useAuth
+  const { user } = useAuth(); 
 
  
   return (
@@ -24,13 +24,12 @@ const ProfileofAdmin = () => {
           </div>
         </div>
 
-        {/* Conditionally render additional data if the user is not a regular user */}
+   
  
           <div className="mt-4">
             <h3 className="text-lg font-semibold text-gray-800">Additional Information</h3>
             <p className="text-gray-700">Email: {user.email}</p>
          
-            {/* Add more information you want to display */}
           </div>
       
       </div>

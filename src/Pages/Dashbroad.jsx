@@ -8,8 +8,8 @@ import { RiAdvertisementLine } from "react-icons/ri";
 
 const Dashbroad = () => {
   const [isAdmin] = useAdmin();
-  const { isAgent } = useLoadUserdata(); // Destructure isAgent from useLoadUserdata hook
- // useEffect to handle navigation
+  const { isAgent } = useLoadUserdata(); 
+
 console.log(isAdmin);
  const navigate = useNavigate();
  useEffect(() => {

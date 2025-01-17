@@ -7,8 +7,8 @@ import useAuth from "../Hooks/useAuth";
 import Loading from "../Component/Loading";
 
 const AllProperty = () => {
-  const secureAxios = useAxiosSecure(); // Secure axios instance
-  const { user } = useAuth(); // Logged-in user
+  const secureAxios = useAxiosSecure(); 
+  const { user } = useAuth();
 
   const { data: properties, isLoading, error } = useQuery({
     queryKey: ["properties"],
@@ -17,12 +17,10 @@ const AllProperty = () => {
       return response.data;
     },
   });
+  const [searchLocation, setSearchLocation] = useState(""); 
+  const [sortOrder, setSortOrder] = useState("asc"); 
 
-  // States for search and sorting
-  const [searchLocation, setSearchLocation] = useState(""); // For search functionality
-  const [sortOrder, setSortOrder] = useState("asc"); // For sorting by price range
-
-  // Handle loading and error states
+ 
   if (isLoading) {
     return (
       <div>
@@ -35,17 +33,16 @@ const AllProperty = () => {
     return <div>Failed to load properties. Please try again later.</div>;
   }
 
-  // Filter properties based on search input (location)
   const filteredProperties = properties?.filter((property) =>
     property.location.toLowerCase().includes(searchLocation.toLowerCase())
   );
 
-  // Sort properties by price range based on selected order
+
   const sortedProperties = filteredProperties?.sort((a, b) => {
     const priceA =
-      a.priceRange.minimumPrice + a.priceRange.maximumPrice / 2; // Average price
+      a.priceRange.minimumPrice + a.priceRange.maximumPrice / 2; 
     const priceB =
-      b.priceRange.minimumPrice + b.priceRange.maximumPrice / 2; // Average price
+      b.priceRange.minimumPrice + b.priceRange.maximumPrice / 2; 
     return sortOrder === "asc" ? priceA - priceB : priceB - priceA;
   });
 

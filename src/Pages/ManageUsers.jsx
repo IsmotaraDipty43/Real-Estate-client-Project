@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
-import { toast } from 'react-toastify'; // For toast notifications
+import { toast } from 'react-toastify';
 import Loading from '../Component/Loading';
 import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const axiosSecure = useAxiosSecure(); // Axios instance with interceptors
-  const navigate = useNavigate(); // Navigate for redirects
+  const axiosSecure = useAxiosSecure(); 
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     axiosSecure.get('/users')

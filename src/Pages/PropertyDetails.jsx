@@ -9,18 +9,17 @@ import useAdmin from "../Hooks/useAdmin";
 import useLoadUserdata from "../Hooks/useLoadUserdata";
 
 const PropertyDetails = () => {
-  const { id } = useParams(); // Get property ID from the URL
-  const [property, setProperty] = useState(null); // State for property details
-  const [reviews, setReviews] = useState([]); // State for reviews
-  const [isLoading, setIsLoading] = useState(true); // Loading state
-  const [newReview, setNewReview] = useState(""); // New review input
-  const [showReviewModal, setShowReviewModal] = useState(false); // Modal visibility
+  const { id } = useParams(); 
+  const [property, setProperty] = useState(null); 
+  const [reviews, setReviews] = useState([]); 
+  const [isLoading, setIsLoading] = useState(true); 
+  const [newReview, setNewReview] = useState(""); 
+  const [showReviewModal, setShowReviewModal] = useState(false); 
   const { user } = useAuth();
-  const axiosSecure = useAxiosSecure(); // Get the secure axios instance
+  const axiosSecure = useAxiosSecure(); 
   const [isAdmin] = useAdmin();
-  const { isAgent } = useLoadUserdata(); // Destructure isAgent from useLoadUserdata hook
+  const { isAgent } = useLoadUserdata(); 
 
-  // Fetch property details and reviews
   useEffect(() => {
     const fetchPropertyDetails = async () => {
       try {
@@ -41,7 +40,7 @@ const PropertyDetails = () => {
     fetchPropertyDetails();
   }, [id, axiosSecure]);
 
-  // Add property to wishlist
+  
   const addToWishlist = async () => {
     if (isAdmin || isAgent) {
       Swal.fire({
@@ -55,7 +54,7 @@ const PropertyDetails = () => {
     
 
     try {
-      // Prepare property data
+    
       const wishlistData = {
         propertyId: property._id,
         title: property.title,
@@ -69,10 +68,10 @@ const PropertyDetails = () => {
         userEmail: user.email,
       };
 
-      // Send data to wishlist API
+   
       await axiosSecure.post("/wishlist", wishlistData);
 
-      // SweetAlert Success Message
+  
       Swal.fire({
         icon: "success",
         title: "Added to Wishlist!",
@@ -81,7 +80,6 @@ const PropertyDetails = () => {
     } catch (error) {
       console.error("Error adding to wishlist:", error);
 
-      // SweetAlert Error Message
       Swal.fire({
         icon: "error",
         title: "Failed to Add",
@@ -104,24 +102,23 @@ const PropertyDetails = () => {
 
     try {
       const reviewData = {
-        reviewerEmail: user.email,  // Ensure this is sent from frontend
+        reviewerEmail: user.email, 
         propertyTitle: property.title,
         reviewerName: user.displayName,
         reviewerImage: user.photoURL,
-        reviewDescription: newReview,  // This is the review content sent from the user
+        reviewDescription: newReview,  
         createdReviewTime: new Date().toISOString(),
         agentName:property.agentName,
       };
       
 
-      await axiosSecure.post("/reviews", reviewData); // Sending the review data to the backend
+      await axiosSecure.post("/reviews", reviewData); 
 
-      // Update the local state with the new review
+    
       setReviews([...reviews, reviewData]);
       setNewReview("");
       setShowReviewModal(false);
 
-      // SweetAlert Success Message
       Swal.fire({
         icon: "success",
         title: "Review Added",
@@ -131,7 +128,7 @@ const PropertyDetails = () => {
     } catch (error) {
       console.error("Error adding review:", error);
 
-      // SweetAlert Error Message
+    
       Swal.fire({
         icon: "error",
         title: "Failed to Add Review",
@@ -245,7 +242,7 @@ const PropertyDetails = () => {
             {/* Reviewer Name */}
             <input
               type="text"
-              value={user.displayName || "Anonymous"} // Fallback for anonymous users
+              value={user.displayName || "Anonymous"} 
               readOnly
               className="w-full p-2 border border-gray-300 rounded-md mb-4"
               placeholder="Your Name"

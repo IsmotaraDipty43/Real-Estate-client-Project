@@ -3,7 +3,7 @@ import useAxiosSecure from '../Hooks/useAxiosSecure';
 import { useNavigate } from 'react-router-dom';
 
 const AdvertiseProperty = () => {
-  const axiosSecure = useAxiosSecure(); // Using the secure axios hook
+  const axiosSecure = useAxiosSecure(); 
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -12,7 +12,7 @@ const AdvertiseProperty = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axiosSecure.get('/property'); // Fetch all properties
+        const response = await axiosSecure.get('/property'); 
         const verifiedProperties = response.data.filter(
           (property) => property.verificationStatus === 'Verified'
         );
@@ -28,7 +28,7 @@ const AdvertiseProperty = () => {
   }, [axiosSecure]);
 
   const handleAdvertise = (property) => {
-    // Navigate to home page and pass the selected property in the state
+
     navigate('/', { state: { propertyId: property._id } });
   };
 

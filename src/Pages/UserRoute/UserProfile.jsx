@@ -5,7 +5,7 @@ import Loading from '../../Component/Loading';
 
 const UserProfile = () => {
 
-  const { user } = useAuth(); // Get logged-in user from useAut
+  const { user } = useAuth(); 
   return (
     <div className="p-6 bg-gray-100">
       <h1 className="text-2xl font-semibold text-center text-gray-800 mb-4">User Profile</h1>
@@ -22,13 +22,13 @@ const UserProfile = () => {
           </div>
         </div>
 
-        {/* Conditionally render additional data if the user is not a regular user */}
+     
     
           <div className="mt-4">
             <h3 className="text-lg font-semibold text-gray-800">Contact Information</h3>
             <p className="text-gray-700">Email: {user.email}</p>
          
-            {/* Add more information you want to display */}
+      
           </div>
   
       </div>

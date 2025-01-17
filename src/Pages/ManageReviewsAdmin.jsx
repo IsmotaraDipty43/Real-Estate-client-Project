@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
-import Swal from 'sweetalert2';  // SweetAlert for notifications
+import Swal from 'sweetalert2';  
 
 const ManageReviewsAdmin = () => {
   const [reviews, setReviews] = useState([]);
-  const axiosSecure = useAxiosSecure(); // Secure Axios instance
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    // Fetch reviews from the backend
+ 
     axiosSecure.get('/reviews')
       .then(response => {
-        setReviews(response.data); // Set the reviews in state
+        setReviews(response.data); 
       })
       .catch(error => {
         console.error('Error fetching reviews:', error);
@@ -18,7 +18,7 @@ const ManageReviewsAdmin = () => {
   }, [axiosSecure]);
 
   const handleDeleteReview = (reviewId, userEmail) => {
-    // Show confirmation alert before deleting
+
     Swal.fire({
       title: 'Are you sure?',
       text: 'This action cannot be undone!',
@@ -29,30 +29,29 @@ const ManageReviewsAdmin = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        // Delete the review from the database
+
         axiosSecure.delete(`/reviews/${reviewId}`)
           .then(() => {
-            // Remove the deleted review from the state
+      
             setReviews(reviews.filter(review => review._id !== reviewId));
 
-            // Show success alert after deletion
+       
             Swal.fire(
               'Deleted!',
               'The review has been deleted.',
               'success'
             );
 
-            // Optional: Also delete the review from the user who posted it (if needed)
+      
             axiosSecure.delete(`/users/reviews/${userEmail}`)
               .then(() => {
-                // Optionally show a success message for removing from the user page
+          
               })
               .catch(err => {
                 console.error('Error removing review from user:', err);
               });
           })
           .catch(error => {
-            // Show error alert if something goes wrong during deletion
             Swal.fire(
               'Error!',
               'There was an issue deleting the review.',
