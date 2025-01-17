@@ -3,17 +3,15 @@ import { useState, useEffect } from "react";
 import useAxiosSecure from "./useAxiosSecure";
 import useAuth from "./useAuth";
 
-// Custom hook to load user data and check if the logged-in user is an agent
-const useLoadUserdata = () => {
-  const [isAgent, setIsAgent] = useState(false); // State to store if the user is an agent
-  const secureAxios = useAxiosSecure(); // Get the secure axios instance
-  const { user } = useAuth(); // Get logged-in user info from auth context
 
-  // Fetch user data using Tanstack Query (React Query v5)
+const useLoadUserdata = () => {
+  const [isAgent, setIsAgent] = useState(false); 
+  const secureAxios = useAxiosSecure(); 
+  const { user } = useAuth(); 
   const { data, error, isLoading } = useQuery({
-    queryKey: ["userData"], // The query key to cache data
+    queryKey: ["userData"], 
     queryFn: async () => {
-      const response = await secureAxios.get("/users"); // Replace with your actual endpoint
+      const response = await secureAxios.get("/users"); 
       return response.data;
     },
   });
