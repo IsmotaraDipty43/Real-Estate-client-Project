@@ -6,7 +6,7 @@ import useAuth from '../../Hooks/useAuth';
 
 const ProfileofAdmin = () => {
 
-  const { user } = useAuth(); // Get logged-in user from useAuth
+  const { user } = useAuth(); 
 
 
 

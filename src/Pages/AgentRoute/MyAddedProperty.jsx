@@ -8,7 +8,7 @@ const MyAddedProperty = () => {
   const [properties, setProperties] = useState([]);
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth(); 
-  const [users, setUsers] = useState([]); // Corrected declaration for users state
+  const [users, setUsers] = useState([]); 
 
 
 
@@ -16,9 +16,9 @@ const MyAddedProperty = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        console.log("User Email:", user.email); // Check if user email is available
+        console.log("User Email:", user.email); 
         const response = await axiosSecure.get(`/properties/${user.email}`);
-          setProperties(response.data); // Set the fetched data to state
+          setProperties(response.data); 
     
       } catch (error) {
         console.error("Error fetching properties:", error);
@@ -26,20 +26,20 @@ const MyAddedProperty = () => {
     };
 
     if (user?.email) {
-      fetchProperties(); // Fetch only if the user email is available
+      fetchProperties(); 
     }
   }, [user.email, axiosSecure]);
 
   const getUser = async () => {
     try {
       const response = await axiosSecure.get("/users");
-      setUsers(response.data);  // Assuming `setUser` is the setter for the user state
+      setUsers(response.data); 
     } catch (error) {
       console.error('Error fetching users:', error);
     }
   };
   
-  // You can call getUser inside useEffect for the component mount
+
   useEffect(() => {
     getUser();
   }, []);
@@ -66,12 +66,12 @@ const MyAddedProperty = () => {
       try {
         const res = await axiosSecure.delete(`/properties/${id}`);
         if (res.data.success) {
-          setProperties(properties.filter((property) => property._id !== id));  // Remove property from the state after deletion
-          Swal.fire('Deleted!', 'Your property has been deleted.', 'success'); // Success notification
+          setProperties(properties.filter((property) => property._id !== id)); 
+          Swal.fire('Deleted!', 'Your property has been deleted.', 'success'); 
         }
       } catch (error) {
         console.error("Error deleting property:", error);
-        Swal.fire('Error!', 'There was a problem deleting the property.', 'error'); // Error notification
+        Swal.fire('Error!', 'There was a problem deleting the property.', 'error'); 
       }
     }
   };
