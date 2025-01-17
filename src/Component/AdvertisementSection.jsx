@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { MdVerified } from 'react-icons/md'; // Import MdVerified icon
+import { MdVerified } from 'react-icons/md'; 
 import useAxiosPublic from '../Hooks/useAxiosPublic';
-import { toast, ToastContainer } from 'react-toastify'; // Import toast and ToastContainer
-import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for react-toastify
+import { toast, ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 import { Link } from 'react-router-dom';
 
 const AdvertisementSection = ({ highlightedPropertyId }) => {
@@ -10,7 +10,7 @@ const AdvertisementSection = ({ highlightedPropertyId }) => {
   const [highlighted, setHighlighted] = useState(null);
   const axiosPublic = useAxiosPublic();
 
-  // Fetch property data from the API
+  
   useEffect(() => {
     axiosPublic
       .get('/property')
@@ -22,7 +22,7 @@ const AdvertisementSection = ({ highlightedPropertyId }) => {
       });
   }, []);
 
-  // Highlight the property when highlightedPropertyId is passed and reset it after 5 seconds
+
   useEffect(() => {
     if (highlightedPropertyId && properties.length > 0) {
       const propertyExists = properties.find((property) => property._id === highlightedPropertyId);
@@ -32,9 +32,9 @@ const AdvertisementSection = ({ highlightedPropertyId }) => {
   
         const timer = setTimeout(() => {
           setHighlighted(null);
-        }, 5000); // Reset highlight after 5 seconds
+        }, 5000); 
   
-        return () => clearTimeout(timer); // Cleanup the timer
+        return () => clearTimeout(timer); 
       } else {
         toast.error('Here only 4 properties are shown. Visit the All Property Page for more!');
       }

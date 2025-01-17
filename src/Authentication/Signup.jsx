@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import useAxiosPublic from '../Hooks/useAxiosPublic';
 import { AuthContext } from '../Provider/AuthProvider';
 import Sociallogin from '../Component/Sociallogin';
-import { section } from 'framer-motion/client';
+
 
 const Signup = () => {
   const axiosPublic = useAxiosPublic();

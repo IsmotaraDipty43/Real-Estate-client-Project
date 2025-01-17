@@ -5,7 +5,7 @@ HomeScape is a fully responsive real estate platform built using the MEAR stack 
 ## Live Demo
 [https://realstate-be053.web.app/](#)
 
-##* Admin Credentials
+## Admin Credentials
 - **Username:** Admin@gmail.com  
 - **Password:** Admin@
 
