@@ -5,6 +5,10 @@ import useAdmin from "../Hooks/useAdmin";
 import useLoadUserdata from "../Hooks/useLoadUserdata";
 import { VscSymbolProperty } from "react-icons/vsc";
 import { RiAdvertisementLine } from "react-icons/ri";
+import { MdAdd, MdAddReaction } from "react-icons/md";
+import { IoBagAdd } from "react-icons/io5";
+import { IoIosCloudDone } from "react-icons/io";
+import { BsFillQuestionSquareFill } from "react-icons/bs";
 
 const Dashbroad = () => {
   const [isAdmin] = useAdmin();
@@ -117,7 +121,7 @@ console.log(isAdmin);
                         : "flex items-center gap-2 hover:bg-gray-700 rounded px-3 py-2"
                     }
                   >
-                    <FaHome /> Add Property
+                 <MdAddReaction /> Add Property
                   </NavLink>
                 </li>
                 <li>
@@ -129,7 +133,7 @@ console.log(isAdmin);
                         : "flex items-center gap-2 hover:bg-gray-700 rounded px-3 py-2"
                     }
                   >
-                    <FaHome /> My Added Properties
+                  <IoBagAdd /> My Added Properties
                   </NavLink>
                 </li>
                 <li>
@@ -141,7 +145,7 @@ console.log(isAdmin);
                         : "flex items-center gap-2 hover:bg-gray-700 rounded px-3 py-2"
                     }
                   >
-                    <FaHome /> My Sold Properties
+                 <IoIosCloudDone /> My Sold Properties
                   </NavLink>
                 </li>
                 <li>
@@ -153,7 +157,7 @@ console.log(isAdmin);
                         : "flex items-center gap-2 hover:bg-gray-700 rounded px-3 py-2"
                     }
                   >
-                    <FaHome /> Requested Properties
+                  <BsFillQuestionSquareFill />  Requested Properties
                   </NavLink>
                 </li>
               </>

@@ -6,16 +6,16 @@ import { useNavigate } from "react-router-dom";
 
 
 const PropertyBought = () => {
-  const { user } = useAuth(); // Get logged-in user details
-  const axiosSecure = useAxiosSecure(); // Secure Axios instance
-  const [offers, setOffers] = useState([]); // State for storing offers
+  const { user } = useAuth(); 
+  const axiosSecure = useAxiosSecure(); 
+  const [offers, setOffers] = useState([]); 
 const navigate= useNavigate()
   useEffect(() => {
     const fetchOffers = async () => {
       try {
         if (user?.email) {
           const response = await axiosSecure.get(`/myoffer/${user.email}`);
-          setOffers(response.data); // Update state with fetched offers
+          setOffers(response.data); 
         }
       } catch (error) {
         console.error("Error fetching offers:", error);
@@ -23,7 +23,7 @@ const navigate= useNavigate()
     };
 
     fetchOffers();
-  }, [user, axiosSecure]); // Dependency array includes user and axiosSecure
+  }, [user, axiosSecure]); 
 
   const handlePayment = (propertyId) => {
     navigate(`/dashbroad/property-bought/payment/${propertyId}`);
@@ -38,7 +38,7 @@ const navigate= useNavigate()
             className="border rounded-lg p-4 shadow-md bg-white"
           >
             <img
-              src={offer.propertyImage} // Assuming image URL
+              src={offer.propertyImage} 
               alt={offer.title}
               className="w-full h-40 object-cover rounded-lg mb-3"
             />
