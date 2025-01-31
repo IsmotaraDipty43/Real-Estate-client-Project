@@ -9,7 +9,7 @@ const Wishlist = () => {
   const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth(); 
-
+const navigate = useNavigate()
   useEffect(() => {
     const fetchWishlist = async () => {
       try {

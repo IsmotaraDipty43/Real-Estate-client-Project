@@ -82,6 +82,19 @@ const Navber = () => {
           Dashbroad
         </NavLink>
       </li>
+      <li>
+      <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            ` btn  bg-transparent border-none text-lg  font-semibold ${
+              isActive ? 'text-red-500 border-b-2 border-red-500' : 'text-white'
+            }`
+          }
+          exact
+        >
+          About Us
+        </NavLink>
+      </li>
             </ul>
           </div>
           <div className="flex gap-1">
@@ -129,6 +142,20 @@ const Navber = () => {
           Dashbroad
         </NavLink>
       </li>
+      <li>
+      <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            ` btn  bg-transparent border-none text-lg  font-semibold ${
+              isActive ? 'text-red-500 border-b-2 border-red-500' : 'text-white'
+            }`
+          }
+          exact
+        >
+          About Us
+        </NavLink>
+      </li>
+      
           </ul>
         </div>
         <div className="navbar-end gap-5 items-center ">

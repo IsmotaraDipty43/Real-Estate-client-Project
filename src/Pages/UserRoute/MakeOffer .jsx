@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
+import Loading from '../../Component/Loading';
 
 const MakeOffer = () => {
   const { propertyId } = useParams();
@@ -73,7 +74,7 @@ const MakeOffer = () => {
   };
 
   if (!property) {
-    return <p>No data</p>;
+    return <p><Loading></Loading></p>;
   }
 
   return (
