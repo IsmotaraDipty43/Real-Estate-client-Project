@@ -29,6 +29,7 @@ import SoldProperty from "../Pages/AgentRoute/SoldProperty";
 import Advertiseproperty from "../Pages/Advertiseproperty";
 import AdminRoute from "./AdminRoute";
 import ErrorMessage from "../Component/ErrorMessage";
+import Aboutus from "../Pages/Aboutus";
 
 
 
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
         {
           path:'/login',
           element:<Login></Login>
+        },
+        {
+          path:'/about',
+          element:<Aboutus></Aboutus>
         },
         {
           path:'/reg',
