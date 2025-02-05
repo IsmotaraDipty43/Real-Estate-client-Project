@@ -75,7 +75,7 @@ Follow these steps to set up and run the project on your local machine using **V
    git clone https://github.com/your-username/book-a-tutor.git  
 
 2️⃣ **Navigate to the Project Folder**  
-   cd book-a-tutor  
+   cd Real-Estate-client-Project
 
 3️⃣ **Open the Project in VS Code**  
    code .  
