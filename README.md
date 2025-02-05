@@ -72,7 +72,7 @@ HomeScape is a fully responsive real estate platform built using the MEAR stack 
 Follow these steps to set up and run the project on your local machine using **VS Code**.
 
 1️⃣ **Clone the Repository**  
-   git clone https://github.com/your-username/book-a-tutor.git  
+   git clone https://github.com/IsmotaraDipty43/Real-Estate-client-Project.git  
 
 2️⃣ **Navigate to the Project Folder**  
    cd Real-Estate-client-Project
