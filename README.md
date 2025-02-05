@@ -67,8 +67,6 @@ HomeScape is a fully responsive real estate platform built using the MEAR stack 
 - **Authorization:** JWT Tokens
 ## 🛠 How to Run the Project Locally
 
-## 🛠 How to Run the Project Locally
-
 Follow these steps to set up and run the project on your local machine using **VS Code**.
 
 1️⃣ **Clone the Repository**  
